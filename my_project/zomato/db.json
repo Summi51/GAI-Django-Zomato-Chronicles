@@ -1,0 +1,247 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Pastaa",
+      "price": 99,
+      "available": true,
+      "description": "Authentic Italian pasta.\r\n          "
+    },
+    {
+      "id": 2,
+      "name": "Pizza",
+      "price": 245,
+      "available": false,
+      "description": "Delicious pizza with a variety."
+    },
+    {
+      "id": 3,
+      "name": "Burger",
+      "price": 90,
+      "available": true,
+      "description": "Classic burger with a variety."
+    },
+    {
+      "id": 4,
+      "name": "Dosa",
+      "price": 129,
+      "available": true,
+      "description": "simple dosa with a variety."
+    },
+    {
+      "id": 5,
+      "name": "Maggi",
+      "price": 40,
+      "available": true,
+      "description": "Maggi with cheese."
+    },
+    {
+      "id": 6,
+      "name": "Manchurian",
+      "price": 234,
+      "available": true,
+      "description": "Manchurian with a variety."
+    },
+    {
+      "id": 7,
+      "name": "Sandwich",
+      "price": 150,
+      "available": true,
+      "description": "Classic sandwich with a variety."
+    },
+    {
+      "id": 8,
+      "name": "White Sos Pasta",
+      "price": 149,
+      "available": true,
+      "description": "White Sos pasta very tasty with a variety of sauce."
+    },
+    {
+      "id": 9,
+      "name": "Paneer Tikka",
+      "price": 255,
+      "available": true,
+      "description": "Paneer Tikka with a variety of sauce."
+    },
+    {
+      "id": 10,
+      "name": "Soda",
+      "price": 20,
+      "available": true,
+      "description": "Refreshing drinks including juices, sodas"
+    },
+    {
+      "id": 11,
+      "name": "French Fries",
+      "price": 100,
+      "available": true,
+      "description": "French Fries with cheese."
+    },
+    {
+      "id": 12,
+      "name": "Sweet Corn",
+      "price": 146,
+      "available": true,
+      "description": "Sweet Corn with cheese."
+    },
+    {
+      "id": 13,
+      "name": "Cake",
+      "price": 500,
+      "available": true,
+      "description": "Chocklate Cake."
+    },
+    {
+      "id": 14,
+      "name": "Icecream",
+      "price": 157,
+      "available": true,
+      "description": "Icecream with a variety."
+    },
+    {
+      "id": 15,
+      "name": "Shake",
+      "price": 250,
+      "available": true,
+      "description": "Shake with a variety."
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customer_name": "Doein Smith",
+      "dishes": [
+        {
+          "id": 2,
+          "name": "Pizza",
+          "price": 245
+        },
+        {
+          "id": 3,
+          "name": "Burger",
+          "price": 90
+        }
+      ],
+      "status": "delivered",
+      "total_price": 335
+    },
+    {
+      "id": 2,
+      "customer_name": "John Doe",
+      "dishes": [
+        {
+          "id": 5,
+          "name": "Maggi",
+          "price": 40
+        },
+        {
+          "id": 6,
+          "name": "Manchurian",
+          "price": 234
+        },
+        {
+          "id": 14,
+          "name": "Icecream",
+          "price": 157
+        }
+      ],
+      "status": "preparing",
+      "total_price": 431
+    },
+    {
+      "id": 3,
+      "customer_name": "Stefan Kowalski",
+      "dishes": [
+        {
+          "id": 7,
+          "name": "Sandwich",
+          "price": 150
+        }
+      ],
+      "status": "preparing",
+      "total_price": 150
+    },
+    {
+      "id": 4,
+      "customer_name": "Samreen Inayat",
+      "dishes": [
+        {
+          "id": 2,
+          "name": "Pizza",
+          "price": 245
+        },
+        {
+          "id": 4,
+          "name": "Dosa",
+          "price": 129
+        },
+        {
+          "id": 7,
+          "name": "Sandwich",
+          "price": 150
+        }
+      ],
+      "status": "delivered",
+      "total_price": 524
+    },
+    {
+      "id": 5,
+      "customer_name": "Demon King",
+      "dishes": [
+        {
+          "id": 15,
+          "name": "Shake",
+          "price": 250
+        },
+        {
+          "id": 12,
+          "name": "Sweet Corn",
+          "price": 146
+        },
+        {
+          "id": 13,
+          "name": "Cake",
+          "price": 500
+        },
+        {
+          "id": 8,
+          "name": "White Sos Pasta",
+          "price": 149
+        }
+      ],
+      "status": "delivered",
+      "total_price": 1045
+    },
+    {
+      "id": 6,
+      "customer_name": "Elena Petrova",
+      "dishes": [
+        {
+          "id": 10,
+          "name": "Soda",
+          "price": 20
+        }
+      ],
+      "status": "delivered",
+      "total_price": 20
+    },
+    {
+      "id": 7,
+      "customer_name": "Nina Doe",
+      "dishes": [
+        {
+          "id": 9,
+          "name": "Paneer Tikka",
+          "price": 255
+        },
+        {
+          "id": 11,
+          "name": "French Fries",
+          "price": 100
+        }
+      ],
+      "status": "preparing",
+      "total_price": 355
+    }
+  ]
+}
