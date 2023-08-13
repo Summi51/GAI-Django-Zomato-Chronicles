@@ -7,105 +7,105 @@ DATA_BASE = {
       "id": 1,
       "name": "Pastaa",
       "price": 99,
-      "available": true,
+      "available": True,
       "description": "Authentic Italian pasta."
     },
     {
       "id": 2,
       "name": "Pizza",
       "price": 245,
-      "available": false,
+      "available": False,
       "description": "Delicious pizza with a variety."
     },
     {
       "id": 3,
       "name": "Burger",
       "price": 90,
-      "available": true,
+      "available": True,
       "description": "Classic burger with a variety."
     },
     {
       "id": 4,
       "name": "Dosa",
       "price": 129,
-      "available": true,
+      "available": True,
       "description": "simple dosa with a variety."
     },
     {
       "id": 5,
       "name": "Maggi",
       "price": 40,
-      "available": true,
+      "available": True,
       "description": "Maggi with cheese."
     },
     {
       "id": 6,
       "name": "Manchurian",
       "price": 234,
-      "available": true,
+      "available": True,
       "description": "Manchurian with a variety."
     },
     {
       "id": 7,
       "name": "Sandwich",
       "price": 150,
-      "available": true,
+      "available": True,
       "description": "Classic sandwich with a variety."
     },
     {
       "id": 8,
       "name": "White Sos Pasta",
       "price": 149,
-      "available": true,
+      "available": False,
       "description": "White Sos pasta very tasty with a variety of sauce."
     },
     {
       "id": 9,
       "name": "Paneer Tikka",
       "price": 255,
-      "available": true,
+      "available": False,
       "description": "Paneer Tikka with a variety of sauce."
     },
     {
       "id": 10,
       "name": "Soda",
       "price": 20,
-      "available": true,
+      "available": False,
       "description": "Refreshing drinks including juices, sodas"
     },
     {
       "id": 11,
       "name": "French Fries",
       "price": 100,
-      "available": true,
+      "available": False,
       "description": "French Fries with cheese."
     },
     {
       "id": 12,
       "name": "Sweet Corn",
       "price": 146,
-      "available": true,
+      "available": True,
       "description": "Sweet Corn with cheese."
     },
     {
       "id": 13,
       "name": "Cake",
       "price": 500,
-      "available": true,
+      "available": True,
       "description": "Chocklate Cake."
     },
     {
       "id": 14,
       "name": "Icecream",
       "price": 157,
-      "available": true,
+      "available": True,
       "description": "Icecream with a variety."
     },
     {
       "id": 15,
       "name": "Shake",
       "price": 250,
-      "available": true,
+      "available": True,
       "description": "Shake with a variety."
     }
   ],
@@ -253,7 +253,6 @@ def dish_read(request):
    menu = DATA_BASE["menu"]
    return render(request, "zomatoapp.html", {"menu": menu})
 
-
 def dish_edit(request, dish_id):
    if request.method == "POST":
     menu = DATA_BASE["menu"]
@@ -274,30 +273,30 @@ def dish_edit(request, dish_id):
     return render(request, "update.html", {"dish": dish})
 
 def dish_add(request):
-   if request.method == "POST":
-    menu = DATA_BASE["menu"]
-    orders = DATA_BASE["orders"]
-    new_dish = {
-      "id": len(menu) + 1,
-      "name": request.POST.get("name"),
-      "price": float(request.POST.get("price")),
-      "available": False,
-      "description": request.POST.get("description")
-    }
-    
-    if new_dish["name"] == "":
-        return HttpResponse("Name can't be empty")
-    if new_dish["price"] == "":
-        return HttpResponse("Price can't be empty")
-    if new_dish["description"] == "":
-        return HttpResponse("Description can't be empty")
- 
-   menu.append(new_dish)
-   DATA_BASE["menu"] = menu
-   DATA_BASE["orders"] = orders
-   return redirect("zomatoapp")
+    menu = DATA_BASE["menu"]  # Initialize 'menu' before the conditional blocks
+    if request.method == "POST":
+        orders = DATA_BASE["orders"]
+        new_dish = {
+            "id": len(menu) + 1,
+            "name": request.POST.get("name"),
+            "price": float(request.POST.get("price")),
+            "available": False,
+            "description": request.POST.get("description")
+        }
 
-return render(request, "dish_add.html")
+        if new_dish["name"] == "":
+            return HttpResponse("Name can't be empty")
+        if new_dish["price"] == "":
+            return HttpResponse("Price can't be empty")
+        if new_dish["description"] == "":
+            return HttpResponse("Description can't be empty")
+
+        menu.append(new_dish)
+        DATA_BASE["menu"] = menu
+        DATA_BASE["orders"] = orders
+        return redirect("zomatoapp")
+    else:
+        return render(request, "dish_add.html", {"menu": menu})
 
 
 def orders(request):
@@ -368,6 +367,7 @@ def dish_search(request):
         search_results = menu
 
     return render(request, "zomatoapp.html", {"menu": search_results, "query": query})
+
 
 
 def dish_delete(request, dish_id):

@@ -1,84 +1,30 @@
-<!-- {% extends 'base.html' %}
-
-{% block title %}
-  Zomato Menu
-{% endblock %}
-
-{% block content %}
-  <div class="container mt-4 border p-4 bg-gray-10" style="background-color: #f8f9fa;">
-    <h2 class="mb-4 fw-bolder">Menu 🍔</h2>
-     {% if query %}Search results for <strong class="mb-2">{{query}}</strong>{% endif %}
-    <div class="row my-2">
-      {% for dish in menu %}
-        <div class="col-md-3 col-lg-3">
-          <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header d-flex ">
-              ${{ dish.price }}
-              <form method="delete" action="{% url 'delete_dish' dish.id %}" style="margin-left: 190px;">
-                 <button type="submit" class="btn-close" aria-label="Close" ></button>
-              </form>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ dish.name }}</h5>
-              <p class="card-text">{{dish.description}}</p>
-           <div class="d-flex justify-content-between ">
-                <form method="get" action="{% url 'place_order' dish.id %}">
-                  {% csrf_token %}
-                  {{ order_form.dish_id.as_hidden }}
-                  {% if dish.available %}
-                    <button type="submit" class="btn btn-dark"><p class="card-text">Grab me🤤</p></button>
-                  {% else %}
-                    <button type="button" class="btn btn-dark disabled">
-                      <p class="card-text text-danger">
-                        <strong>Not Available</strong> 😒
-                      </p>
-                    </button>
-                  {% endif %}
-                </form>
-                <form method="get"action="{% url 'update_dish' dish.id %}">
-                  {% csrf_token %}
-                  {{ order_form.dish_id.as_hidden }}
-                  <button type="submit" class="btn btn-dark"><p class="card-text">Edit ✏</p></button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-{% endblock %} -->
-
-
-{% extends 'base.html' %}
-
-{% block content %}
-<h2>ZomatoApp</h2>
-<form method="get" action="{% url 'dish_search' %}">
-    <input type="text" name="search" placeholder="Search by name">
-    <input type="submit" value="Search">
+{% extends 'base.html' %} {% block content %}
+<h2 style="color: teal; text-align: center; font-weight:bold; font-size: 25px;">ZomatoApp</h2>
+<form  method="get" action="{% url 'dish_search' %}">
+  <input  style="background-color: lightgrey; border-radius: 3px; margin-top: 40px; width: 30%; height: 30px;" type="text" name="search" placeholder="Search by name" />
+  <input type="submit" value="Search" style="background-color: rgb(0, 0, 0); color: white; margin-top: 40px; padding: 8px;" />
 </form>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Available</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    {% for dish in menu %}
-    <tr>
-        <td>{{ dish.id }}</td>
-        <td>{{ dish.name }}</td>
-        <td>{{ dish.price }}</td>
-        <td>{{ dish.available }}</td>
-        <td>{{ dish.description }}</td>
-        <td>
-            <a href="{% url 'dish_edit' dish.id %}">Edit</a>
-            <a href="{% url 'dish_delete' dish.id %}">Delete</a>
-        </td>
-    </tr>
-    {% endfor %}
+<table style="background-color: lightgray; padding: 30px; display: flex; place-content: center; margin-top: 40px; width: 100%;">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  {% for dish in menu %}
+  <tr>
+    <td>{{ dish.id }}</td>
+    <td>{{ dish.name }}</td>
+    <td>{{ dish.price }}</td>
+    <td>{{ dish.available }}</td>
+    <td>{{ dish.description }}</td>
+    <td>
+      <a href="{% url 'dish_edit' dish.id %}">Edit</a>
+      <a href="{% url 'dish_delete' dish.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
 </table>
 {% endblock %}
